@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "SPkAzdLG1L1pvY8FIo1qkydVdp5kJrpIWu7cgEsVpc4=",
+  "Source": "persona-backend.Api",
+  "BasePath": "_content/persona-backend.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

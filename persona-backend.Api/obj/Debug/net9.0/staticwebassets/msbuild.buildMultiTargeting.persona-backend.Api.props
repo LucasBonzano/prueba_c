@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\persona-backend.Api.props" />
+</Project>

@@ -1,0 +1,16 @@
+C:\Users\lucas\source\repos\LucasBonzano\Proyecto_Bitsion\persona-backend.Logic\bin\Debug\net9.0\persona-backend.Logic.deps.json
+C:\Users\lucas\source\repos\LucasBonzano\Proyecto_Bitsion\persona-backend.Logic\bin\Debug\net9.0\persona-backend.Logic.dll
+C:\Users\lucas\source\repos\LucasBonzano\Proyecto_Bitsion\persona-backend.Logic\bin\Debug\net9.0\persona-backend.Logic.pdb
+C:\Users\lucas\source\repos\LucasBonzano\Proyecto_Bitsion\persona-backend.Logic\bin\Debug\net9.0\persona-backend.Data.dll
+C:\Users\lucas\source\repos\LucasBonzano\Proyecto_Bitsion\persona-backend.Logic\bin\Debug\net9.0\persona-backend.Data.pdb
+C:\Users\lucas\source\repos\LucasBonzano\Proyecto_Bitsion\persona-backend.Logic\obj\Debug\net9.0\persona-backend.Logic.csproj.AssemblyReference.cache
+C:\Users\lucas\source\repos\LucasBonzano\Proyecto_Bitsion\persona-backend.Logic\obj\Debug\net9.0\persona-backend.Logic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lucas\source\repos\LucasBonzano\Proyecto_Bitsion\persona-backend.Logic\obj\Debug\net9.0\persona-backend.Logic.AssemblyInfoInputs.cache
+C:\Users\lucas\source\repos\LucasBonzano\Proyecto_Bitsion\persona-backend.Logic\obj\Debug\net9.0\persona-backend.Logic.AssemblyInfo.cs
+C:\Users\lucas\source\repos\LucasBonzano\Proyecto_Bitsion\persona-backend.Logic\obj\Debug\net9.0\persona-backend.Logic.csproj.CoreCompileInputs.cache
+C:\Users\lucas\source\repos\LucasBonzano\Proyecto_Bitsion\persona-backend.Logic\obj\Debug\net9.0\persona-backend.Logic.sourcelink.json
+C:\Users\lucas\source\repos\LucasBonzano\Proyecto_Bitsion\persona-backend.Logic\obj\Debug\net9.0\persona-.8081867D.Up2Date
+C:\Users\lucas\source\repos\LucasBonzano\Proyecto_Bitsion\persona-backend.Logic\obj\Debug\net9.0\persona-backend.Logic.dll
+C:\Users\lucas\source\repos\LucasBonzano\Proyecto_Bitsion\persona-backend.Logic\obj\Debug\net9.0\refint\persona-backend.Logic.dll
+C:\Users\lucas\source\repos\LucasBonzano\Proyecto_Bitsion\persona-backend.Logic\obj\Debug\net9.0\persona-backend.Logic.pdb
+C:\Users\lucas\source\repos\LucasBonzano\Proyecto_Bitsion\persona-backend.Logic\obj\Debug\net9.0\ref\persona-backend.Logic.dll
