@@ -1,171 +1,107 @@
-<div class="container mt-5">
-  <h2>Formulario de Información Personal</h2>
-  <form (ngSubmit)="onSubmit()">
-    <!-- Nombre completo -->
-    <div class="mb-3">
-      <label for="fullName" class="form-label">Nombre completo</label>
-      <input
-        type="text"
-        class="form-control"
-        id="fullName"
-        [(ngModel)]="model.fullName"
-        name="fullName"
-        required
-      />
-    </div>
-
-    <!-- Identificación -->
-    <div class="mb-3">
-      <label for="id" class="form-label">Identificación</label>
-      <input
-        type="text"
-        class="form-control"
-        id="id"
-        [(ngModel)]="model.id"
-        name="id"
-        required
-      />
-    </div>
-
-    <!-- Edad -->
-    <div class="mb-3">
-      <label for="age" class="form-label">Edad</label>
-      <input
-        type="number"
-        class="form-control"
-        id="age"
-        [(ngModel)]="model.age"
-        name="age"
-        required
-      />
-    </div>
-
-    <!-- Género -->
-    <div class="mb-3">
-      <label for="gender" class="form-label">Género</label>
-      <select
-        class="form-select"
-        id="gender"
-        [(ngModel)]="model.gender"
-        name="gender"
-        required
-      >
-        <option value="">Seleccione género</option>
-        <option value="Masculino">Masculino</option>
-        <option value="Femenino">Femenino</option>
-        <option value="Otro">Otro</option>
-      </select>
-    </div>
-
-    <!-- Estado (Activo o no) -->
-    <div class="mb-3">
-      <label for="status" class="form-label">Estado</label>
-      <select
-        class="form-select"
-        id="status"
-        [(ngModel)]="model.status"
-        name="status"
-        required
-      >
-        <option value="Activo">Activo</option>
-        <option value="Inactivo">Inactivo</option>
-      </select>
-    </div>
-
-    <!-- Atributos adicionales -->
-    <div class="mb-3">
-      <label for="additionalAttributes" class="form-label">Atributos adicionales</label>
-      <textarea
-        class="form-control"
-        id="additionalAttributes"
-        [(ngModel)]="model.additionalAttributes"
-        name="additionalAttributes"
-        rows="3"
-      ></textarea>
-    </div>
-
-    <!-- ¿Maneja? -->
-    <div class="mb-3">
-      <label for="drives" class="form-label">¿Maneja?</label>
-      <div>
-        <label class="form-check-label me-3">
-          <input
-            type="checkbox"
-            class="form-check-input"
-            id="drives"
-            [(ngModel)]="model.drives"
-            name="drives"
-          />
-          Sí
-        </label>
+<!-- Sección de encabezado con título y botón -->
+<div class="container-fluid px-4">
+  <div class="row justify-content-center">
+    <div class="col-xl-9">
+      <!-- Título con diseño mejorado -->
+      <div class="text-center mb-4">
+        <h2 class="display-6 fw-bold text-primary mb-2">
+          <i class="bi bi-people-fill me-2"></i>Gestión de Clientes
+        </h2>
+        <p class="text-muted">Administra la información de tus clientes de manera eficiente</p>
       </div>
-    </div>
 
-    <!-- ¿Usa lentes? -->
-    <div class="mb-3">
-      <label for="wearsGlasses" class="form-label">¿Usa lentes?</label>
-      <div>
-        <label class="form-check-label me-3">
-          <input
-            type="checkbox"
-            class="form-check-input"
-            id="wearsGlasses"
-            [(ngModel)]="model.wearsGlasses"
-            name="wearsGlasses"
-          />
-          Sí
-        </label>
+      <!-- Botón centrado con margen -->
+      <div class="d-flex justify-content-center mb-4">
+        <button type="button" class="btn btn-primary d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#clienteModal">
+          <i class="bi bi-plus-lg me-2"></i> Nuevo Cliente
+        </button>
       </div>
-    </div>
-
-    <!-- ¿Diabético? -->
-    <div class="mb-3">
-      <label for="isDiabetic" class="form-label">¿Diabético?</label>
-      <div>
-        <label class="form-check-label me-3">
-          <input
-            type="checkbox"
-            class="form-check-input"
-            id="isDiabetic"
-            [(ngModel)]="model.isDiabetic"
-            name="isDiabetic"
-          />
-          Sí
-        </label>
-      </div>
-    </div>
-
-    <!-- ¿Padece alguna otra enfermedad? ¿Cuál? -->
-    <div class="mb-3">
-      <label for="hasOtherDiseases" class="form-label">¿Padece alguna otra enfermedad?</label>
-      <div>
-        <label class="form-check-label me-3">
-          <input
-            type="checkbox"
-            class="form-check-input"
-            id="hasOtherDiseases"
-            [(ngModel)]="model.hasOtherDiseases"
-            name="hasOtherDiseases"
-          />
-          Sí
-        </label>
-      </div>
-    </div>
-
-    <!-- Enfermedad específica -->
-    <div class="mb-3" *ngIf="model.hasOtherDiseases">
-      <label for="otherDiseases" class="form-label">¿Cuál?</label>
-      <input
-        type="text"
-        class="form-control"
-        id="otherDiseases"
-        [(ngModel)]="model.otherDiseases"
-        name="otherDiseases"
-      />
-    </div>
-
-    <button type="submit" class="btn btn-primary">
-      Enviar
-    </button>
-  </form>
+  </div>
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="clienteModal" tabindex="-1" aria-labelledby="clienteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="clienteModalLabel">Agregar Cliente</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      
+      <div class="modal-body">
+        <!-- Formulario -->
+        <form (ngSubmit)="onSubmit(model)">
+          <div class="mb-2">
+            <label class="form-label">Nombre Completo:</label>
+            <input class="form-control" type="text" [(ngModel)]="model.fullName" name="fullName" required />
+          </div>
+
+          <div class="mb-2">
+            <label class="form-label">Identificación:</label>
+            <input class="form-control" type="text" [(ngModel)]="model.id" name="id" required />
+          </div>
+
+          <div class="mb-2">
+            <label class="form-label">Edad:</label>
+            <input class="form-control" type="number" [(ngModel)]="model.age" name="age" required />
+          </div>
+
+          <div class="mb-2">
+            <label class="form-label">Género:</label>
+            <select class="form-select" [(ngModel)]="model.gender" name="gender">
+              <option value="Masculino">Masculino</option>
+              <option value="Femenino">Femenino</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+
+          <div class="mb-2">
+            <label class="form-label">Estado:</label>
+            <select class="form-select" [(ngModel)]="model.status" name="status">
+              <option value="Activo">Activo</option>
+              <option value="No activo">No activo</option>
+            </select>
+          </div>
+
+          <div class="mb-2">
+            <label class="form-label">Atributos Adicionales:</label>
+            <input class="form-control" type="text" [(ngModel)]="model.additionalAttributes" name="additionalAttributes" />
+          </div>
+
+          <div class="mb-2 form-check">
+            <input type="checkbox" class="form-check-input" [(ngModel)]="model.drives" name="drives" />
+            <label class="form-check-label">¿Maneja?</label>
+          </div>
+
+          <div class="mb-2 form-check">
+            <input type="checkbox" class="form-check-input" [(ngModel)]="model.wearsGlasses" name="wearsGlasses" />
+            <label class="form-check-label">¿Usa lentes?</label>
+          </div>
+
+          <div class="mb-2 form-check">
+            <input type="checkbox" class="form-check-input" [(ngModel)]="model.isDiabetic" name="isDiabetic" />
+            <label class="form-check-label">¿Diabético?</label>
+          </div>
+
+          <div class="mb-2 form-check">
+            <input type="checkbox" class="form-check-input" [(ngModel)]="model.hasOtherDiseases" name="hasOtherDiseases" />
+            <label class="form-check-label">¿Padece alguna otra enfermedad?</label>
+          </div>
+
+          <div class="mb-2">
+            <label class="form-label">Otras Enfermedades:</label>
+            <input class="form-control" type="text" [(ngModel)]="model.otherDiseases" name="otherDiseases" [disabled]="!model.hasOtherDiseases" />
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+        </form>
+        <!-- Fin Formulario -->
+      </div>
+    </div>
+  </div>
+</div>
+

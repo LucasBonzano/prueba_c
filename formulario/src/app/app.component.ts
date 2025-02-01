@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { FormComponent } from './form/form.component';
-import { NgIf } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { routes } from './app.routes';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormComponent, NgIf],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.css'],
+  standalone: true,
+  imports: [RouterModule],  // Asegúrate de importar RouterModule aquí
 })
-export class AppComponent {
-  title = 'formulario';
-}
+export class AppComponent {}

@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\persona-backend.Api",
+    "\\persona-backend.Api\\Controller",
+    "\\persona-backend.Data",
+    "\\persona-backend.Logic"
+  ],
+  "SelectedNode": "\\persona-backend.Api\\Controller\\AuthController.cs",
+  "PreviewInSolutionExplorer": false
+}

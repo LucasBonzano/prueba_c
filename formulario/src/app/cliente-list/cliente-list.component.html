@@ -1,0 +1,107 @@
+<app-form></app-form>
+<!-- Contenedor principal con ancho controlado -->
+<div class="container-fluid px-4">
+  <div class="row justify-content-center">
+    <div class="col-xl-9"> <!-- Equivalente al 75% del ancho -->
+      <div class="card shadow-sm">
+        <div class="card-body p-0"> <!-- Eliminamos el padding del card-body -->
+          <table class="table table-hover align-middle mb-0">
+            <thead class="table-dark">
+              <tr>
+                <th style="width: 40%">Nombre</th>
+                <th style="width: 30%">Identificación</th>
+                <th class="text-end" style="width: 30%">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cliente of clientes" 
+                  (click)="seleccionarCliente(cliente)" 
+                  class="align-middle"
+                  role="button">
+                <td class="fw-medium py-3">{{ cliente.nombreCompleto }}</td>
+                <td class="py-3">{{ cliente.identificacion }}</td>
+                <td>
+                  <div class="d-flex justify-content-end gap-2 py-2 px-3">
+                    <button class="btn btn-danger btn-sm px-2 py-1" 
+                            (click)="eliminarCliente(cliente.id); $event.stopPropagation()"
+                            title="Eliminar">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                    <button class="btn btn-warning btn-sm px-2 py-1" 
+                            (click)="editarCliente(cliente.id); $event.stopPropagation()"
+                            title="Editar">
+                      <i class="bi bi-pencil"></i>
+                    </button>
+                    <button class="btn btn-info btn-sm px-2 py-1" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#detalleClienteModal"
+                            title="Ver detalles">
+                      <i class="bi bi-eye"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal para mostrar detalles del cliente -->
+<div class="modal fade" id="detalleClienteModal" tabindex="-1" aria-labelledby="detalleClienteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="detalleClienteModalLabel">Detalles del Cliente</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card shadow-sm">
+          <div class="card-body" *ngIf="clienteSeleccionado">
+            <h5 class="card-title">{{ clienteSeleccionado.nombreCompleto }}</h5>
+            <p class="card-text">
+              <strong>Identificación:</strong> {{ clienteSeleccionado.identificacion }}<br>
+              <strong>Edad:</strong> {{ clienteSeleccionado.edad }} años<br>
+              <strong>Género:</strong> {{ clienteSeleccionado.genero }}
+            </p>
+
+            <!-- Estado con colores -->
+            <span class="badge" 
+                  [ngClass]="clienteSeleccionado.estado === 'Activo' ? 'bg-success' : 'bg-secondary'">
+              {{ clienteSeleccionado.estado }}
+            </span>
+
+            <hr>
+
+            <!-- Información de valores booleanos -->
+            <div class="d-flex justify-content-between">
+              <span>
+                <i class="bi" 
+                   [ngClass]="clienteSeleccionado.maneja ? 'bi-check-circle text-success' : 'bi-x-circle text-danger'">
+                </i> Maneja
+              </span>
+
+              <span>
+                <i class="bi" 
+                   [ngClass]="clienteSeleccionado.usaLentes ? 'bi-check-circle text-success' : 'bi-x-circle text-danger'">
+                </i> Usa lentes
+              </span>
+
+              <span>
+                <i class="bi" 
+                   [ngClass]="clienteSeleccionado.diabetico ? 'bi-check-circle text-success' : 'bi-x-circle text-danger'">
+                </i> Diabético
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
