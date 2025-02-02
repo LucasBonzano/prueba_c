@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("persona-backend.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+24bdf78dba6c8ad9c5f2e9a5f227d20b96ee92b9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4a2df45a182986b7589fd5b9096f414125ce6503")]
 [assembly: System.Reflection.AssemblyProductAttribute("persona-backend.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("persona-backend.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

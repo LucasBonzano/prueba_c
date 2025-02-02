@@ -25,11 +25,11 @@ export class LoginComponent {
   onSubmit(): void {
     this.submitted = true;
 
-    if (!this.username || !this.password) return; // Validación manual
+    if (!this.username || !this.password) return;
 
     this.authService.login(this.username, this.password).subscribe({
       next: (response) => {
-        this.jwtService.setToken(response.token);
+        this.jwtService.setToken(response.token, response.user);
         this.isLoggedIn = true;
         this.router.navigate(['/list']);
       },

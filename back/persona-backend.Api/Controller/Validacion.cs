@@ -1,10 +1,6 @@
-﻿using System;
+﻿using System.IdentityModel.Tokens.Jwt;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
 
 namespace persona_backend.Middleware
 {
@@ -20,7 +16,6 @@ namespace persona_backend.Middleware
             _logger = logger;
             _secretKey = secretKey ?? throw new ArgumentNullException(nameof(secretKey));
 
-            // Log the initialization
             _logger.LogInformation("TokenValidationMiddleware initialized with key length: {Length}",
                 secretKey?.Length ?? 0);
         }
@@ -67,8 +62,8 @@ namespace persona_backend.Middleware
                 {
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ValidateIssuer = false,  
-                    ValidateAudience = false, 
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
                     ValidateLifetime = true,
                     ClockSkew = TimeSpan.Zero
                 };
@@ -113,7 +108,7 @@ namespace persona_backend.Middleware
 
         private bool IsPublicPath(PathString path)
         {
-            var publicPaths = new[] { "/api/auth/login", "/api/auth/gettoken" };
+            var publicPaths = new[] { "/api/auth/login" };
             return publicPaths.Any(p => path.Equals(p, StringComparison.OrdinalIgnoreCase));
         }
 

@@ -1,8 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using persona_backend.Data;
 using persona_backend.Data.Usuario;
 using persona_backend.Logic;

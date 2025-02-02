@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using persona_backend.Data.Usuario;
-using persona_backend.Logic;
 
 namespace persona_backend.Controllers
 {

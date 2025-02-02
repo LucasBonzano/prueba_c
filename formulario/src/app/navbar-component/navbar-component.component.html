@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+  <a class="navbar-brand" routerLink="/list">Gestión Clientes</a>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+        <a *ngIf="!isLoggedIn()" class="nav-link" routerLink="/login">
+          <i class="bi bi-person-circle"></i> Iniciar Sesión
+        </a>
+        <a *ngIf="isLoggedIn()" class="nav-link" (click)="toggleProfileMenu()">
+          <i class="bi bi-person-circle"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+  <!-- Menú desplegable con el nombre del usuario y botón de cerrar sesión -->
+  <div *ngIf="isLoggedIn() && isProfileMenuVisible" class="profile-menu">
+    <div class="profile-content">
+      <h5>{{ userName }}</h5>
+      <button class="btn btn-danger" (click)="logout()">Cerrar Sesión</button>
+    </div>
+  </div>
+</nav>
+

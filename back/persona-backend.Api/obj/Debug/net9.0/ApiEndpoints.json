@@ -25,7 +25,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[persona_backend.Data.Cliente, persona-backend.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[persona_backend.Data.Clientes, persona-backend.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -45,13 +45,13 @@
     "Parameters": [
       {
         "Name": "cliente",
-        "Type": "persona_backend.Data.Cliente",
+        "Type": "persona_backend.Data.Clientes",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "persona_backend.Data.Cliente",
+        "Type": "persona_backend.Data.Clientes",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -77,7 +77,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "persona_backend.Data.Cliente",
+        "Type": "persona_backend.Data.Clientes",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -102,7 +102,7 @@
       },
       {
         "Name": "cliente",
-        "Type": "persona_backend.Data.Cliente",
+        "Type": "persona_backend.Data.Clientes",
         "IsRequired": true
       }
     ],

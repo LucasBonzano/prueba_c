@@ -1,16 +1,12 @@
-<!-- Sección de encabezado con título y botón -->
 <div class="container-fluid px-4">
   <div class="row justify-content-center">
     <div class="col-xl-9">
-      <!-- Título con diseño mejorado -->
       <div class="text-center mb-4">
         <h2 class="display-6 fw-bold text-primary mb-2">
           <i class="bi bi-people-fill me-2"></i>Gestión de Clientes
         </h2>
         <p class="text-muted">Administra la información de tus clientes de manera eficiente</p>
       </div>
-
-      <!-- Botón centrado con margen -->
       <div class="d-flex justify-content-center mb-4">
         <button type="button" class="btn btn-primary d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#clienteModal">
           <i class="bi bi-plus-lg me-2"></i> Nuevo Cliente
@@ -19,37 +15,36 @@
   </div>
 </div>
 
-
-<!-- Modal -->
-<div class="modal fade" id="clienteModal" tabindex="-1" aria-labelledby="clienteModalLabel" aria-hidden="true">
+<div class="modal fade" #clienteModal id="clienteModal" tabindex="-1" aria-labelledby="clienteModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="clienteModalLabel">Agregar Cliente</h5>
+        <h5 class="modal-title" id="clienteModalLabel">
+          {{ isEditing ? 'Editar Cliente' : 'Agregar Cliente' }}
+        </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
       
       <div class="modal-body">
-        <!-- Formulario -->
         <form (ngSubmit)="onSubmit(model)">
           <div class="mb-2">
-            <label class="form-label">Nombre Completo:</label>
+            <label class="form-label">Nombre Completo:<span style="color: #ff4d4f">*</span></label>
             <input class="form-control" type="text" [(ngModel)]="model.fullName" name="fullName" required />
           </div>
 
           <div class="mb-2">
-            <label class="form-label">Identificación:</label>
-            <input class="form-control" type="text" [(ngModel)]="model.id" name="id" required />
+            <label class="form-label">Cuil:<span style="color: #ff4d4f">*</span></label>
+            <input class="form-control" type="text" [(ngModel)]="model.cuil" name="cuil" required min="1" />
+          </div>
+          
+          <div class="mb-2">
+            <label class="form-label">Edad:<span style="color: #ff4d4f">*</span></label>
+            <input class="form-control" type="number" [(ngModel)]="model.age" name="age" required min="1" />
           </div>
 
           <div class="mb-2">
-            <label class="form-label">Edad:</label>
-            <input class="form-control" type="number" [(ngModel)]="model.age" name="age" required />
-          </div>
-
-          <div class="mb-2">
-            <label class="form-label">Género:</label>
-            <select class="form-select" [(ngModel)]="model.gender" name="gender">
+            <label class="form-label">Género:<span style="color: #ff4d4f">*</span></label>
+            <select class="form-select" [(ngModel)]="model.gender" name="gender" required>
               <option value="Masculino">Masculino</option>
               <option value="Femenino">Femenino</option>
               <option value="Otro">Otro</option>
@@ -57,8 +52,8 @@
           </div>
 
           <div class="mb-2">
-            <label class="form-label">Estado:</label>
-            <select class="form-select" [(ngModel)]="model.status" name="status">
+            <label class="form-label">Estado:<span style="color: #ff4d4f">*</span></label>
+            <select class="form-select" [(ngModel)]="model.status" name="status" required>
               <option value="Activo">Activo</option>
               <option value="No activo">No activo</option>
             </select>
@@ -96,10 +91,9 @@
 
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
           </div>
         </form>
-        <!-- Fin Formulario -->
       </div>
     </div>
   </div>

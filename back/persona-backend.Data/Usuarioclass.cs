@@ -5,15 +5,15 @@ namespace persona_backend.Data.Usuario;
 
 public class Usuario
 {
-    public int ID { get; set; }  // ID del usuario
-    public string NombreUsuario { get; set; }  // Nombre de usuario
-    public byte[] Contraseña { get; set; }  // Contraseña hasheada
-    public string Gmail { get; set; }   // Correo electrónico
+    public int ID { get; set; }
+    public string NombreUsuario { get; set; }
+    public byte[] Contraseña { get; set; }
+    public string Gmail { get; set; }
 }
 
 public class AppDbUsuario : DbContext
 {
-    public DbSet<Usuario> Usuario { get; set; } // Asegúrate de que la propiedad sea 'Usuarios'
+    public DbSet<Usuario> Usuario { get; set; }
 
     public AppDbUsuario(DbContextOptions<AppDbUsuario> options) : base(options) { }
 }

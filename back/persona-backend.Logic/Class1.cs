@@ -1,13 +1,13 @@
 ﻿
 
-using Microsoft.EntityFrameworkCore;
-using persona_backend.Data;
-using System.Security.Cryptography;
-using System.Text;
-using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using persona_backend.Data;
 using persona_backend.Data.Usuario;
 
 namespace persona_backend.Logic
@@ -21,24 +21,24 @@ namespace persona_backend.Logic
             _context = context;
         }
 
-        public async Task<List<Cliente>> GetClientes()
+        public async Task<List<Clientes>> GetClientes()
         {
             return await _context.Clientes.ToListAsync();
         }
 
-        public async Task<Cliente?> GetCliente(int id)
+        public async Task<Clientes?> GetCliente(int id)
         {
             return await _context.Clientes.FindAsync(id);
         }
 
-        public async Task<Cliente> CreateCliente(Cliente cliente)
+        public async Task<Clientes> CreateCliente(Clientes cliente)
         {
             _context.Clientes.Add(cliente);
             await _context.SaveChangesAsync();
             return cliente;
         }
 
-        public async Task<bool> UpdateCliente(int id, Cliente cliente)
+        public async Task<bool> UpdateCliente(int id, Clientes cliente)
         {
             if (id != cliente.Id)
             {
@@ -85,14 +85,13 @@ public class JwtService : IJwtService
         _issuer = configuration["Jwt:Issuer"] ?? "DefaultIssuer";
         _audience = configuration["Jwt:Audience"] ?? "DefaultAudience";
 
-        // Parseamos el valor de expiración de forma segura
         if (int.TryParse(configuration["Jwt:ExpiryInMinutes"], out int expiryMinutes))
         {
             _expiryInMinutes = expiryMinutes;
         }
         else
         {
-            _expiryInMinutes = 60; // valor por defecto
+            _expiryInMinutes = 60;
         }
     }
 
