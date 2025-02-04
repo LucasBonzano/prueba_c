@@ -1,4 +1,4 @@
-<div class="container-fluid px-4">
+<div class="container-fluid p-4">
   <div class="row justify-content-center">
     <div class="col-xl-9">
       <div class="text-center mb-4">
@@ -79,16 +79,23 @@
             <label class="form-check-label">¿Diabético?</label>
           </div>
 
-          <div class="mb-2 form-check">
-            <input type="checkbox" class="form-check-input" [(ngModel)]="model.hasOtherDiseases" name="hasOtherDiseases" />
-            <label class="form-check-label">¿Padece alguna otra enfermedad?</label>
-          </div>
+          <!-- ... (código anterior del modal) ... -->
 
-          <div class="mb-2">
+          <div *ngIf="model.hasOtherDiseases">
             <label class="form-label">Otras Enfermedades:</label>
-            <input class="form-control" type="text" [(ngModel)]="model.otherDiseases" name="otherDiseases" [disabled]="!model.hasOtherDiseases" />
+            
+            <div *ngFor="let disease of enfermedadesExtrasArray; let i = index" class="mb-2">
+              <div class="input-group">
+                <input class="form-control" type="text" [(ngModel)]="enfermedadesExtrasArray[i]" name="disease{{i}}" (change)="model.otherDiseases = enfermedadesExtrasArray.join(',')" />
+                <button class="btn btn-outline-danger" type="button" (click)="removeDisease(i)">Eliminar</button>
+              </div>
+            </div>
+            
+            <div class="input-group mb-2">
+              <input class="form-control" type="text" [(ngModel)]="newDisease" name="newDisease" placeholder="Nueva enfermedad" />
+              <button class="btn btn-outline-primary" type="button" (click)="addDisease()">Agregar</button>
+            </div>
           </div>
-
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>

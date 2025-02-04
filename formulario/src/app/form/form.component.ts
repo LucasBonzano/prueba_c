@@ -4,10 +4,11 @@ import { ClienteService } from '../services/cliente.service';
 import { ClienteSharedService } from '../shared/shared.service';
 import { Subscription } from 'rxjs';
 import { Modal } from 'bootstrap';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-form',
-  imports: [FormsModule],
+  imports: [FormsModule, NgIf, NgFor],
   standalone: true,
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
@@ -19,6 +20,8 @@ export class FormComponent implements OnDestroy, AfterViewInit {
   private modalInstance!: Modal;
   clienteDataUpdate = {};
   clienteData = {};
+  enfermedadesExtrasArray: string[] = [] // Nueva propiedad para almacenar el arreglo de enfermedades
+  newDisease = ""
   @ViewChild('clienteModal') modalElement!: ElementRef;
 
   model = {
@@ -60,6 +63,7 @@ export class FormComponent implements OnDestroy, AfterViewInit {
       } else {
         this.resetForm();
       }
+      this.recuperarEnfermedadesExtras()
     });
   }
 
@@ -144,4 +148,35 @@ export class FormComponent implements OnDestroy, AfterViewInit {
       }
     });
   }
+  recuperarEnfermedadesExtras() {
+    if ( this.model.hasOtherDiseases && this.model.otherDiseases) {
+      // Separar las enfermedades en un arreglo
+      this.enfermedadesExtrasArray = this.model.otherDiseases.split(",").map((enfermedad) => enfermedad.trim())
+      console.log("Enfermedades extras recuperadas:", this.enfermedadesExtrasArray)
+    } else {
+      this.enfermedadesExtrasArray = []
+      console.log(
+        "No se pueden recuperar enfermedades extras: additionalAttributes está desactivado o no hay otras enfermedades",
+      )
+    }
+  }
+  addDisease() {
+    if (this.newDisease.trim()) {
+      if (!this.enfermedadesExtrasArray.includes(this.newDisease.trim())) {
+        this.enfermedadesExtrasArray.push(this.newDisease.trim())
+        this.model.otherDiseases = this.enfermedadesExtrasArray.join(", ")
+        this.newDisease = ""
+        console.log("Enfermedad agregada. Lista actualizada:", this.enfermedadesExtrasArray)
+      } else {
+        console.log("La enfermedad ya existe en la lista")
+      }
+    }
+  }
+
+  removeDisease(index: number) {
+    this.enfermedadesExtrasArray.splice(index, 1)
+    this.model.otherDiseases = this.enfermedadesExtrasArray.join(", ")
+    console.log("Enfermedad eliminada. Lista actualizada:", this.enfermedadesExtrasArray)
+  }
+
 }
